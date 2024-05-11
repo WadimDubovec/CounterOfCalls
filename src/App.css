@@ -1,38 +1,140 @@
 .App {
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.content {
+    display: flex; /* Добавляем flex-контейнер для содержимого */
+    flex-direction: column; /* Столбцовая ориентация для содержимого */
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    border: 2px solid #000;
+    border-radius:30px;
+    padding: 40px;
+}
+.content h2 {
+    font-size: 40px;
+}
+.content h1 {
+    font-size: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-minus {
+    background-color: #d5281a;
+    color: white;
+    border:none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+}
+.btn-plus {
+    background-color: #4CAF50;
+    color: white;
+    border:none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    
+}
+.btn-zero {
+    background-color: #1a87d5;
+    color: white;
+    border:none;
+    padding: 15px 65px;
+    margin: 10px 5px -5px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.btn-escalation {
+    background-color: #7d53c5;
+    color: white;
+    border:none;
+    padding: 15px 65px;
+    margin: 10px 5px -5px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.btn-minus:hover, .btn-plus:hover, .btn-zero:hover, .btn-escalation:hover {
+    filter: brightness(1.5); /* Увеличение яркости при наведении */
+}
+.btn-minus:active, .btn-plus:active, .btn-zero:active, .btn-escalation:active {
+    transform: scale(0.95); /* Уменьшение размера при нажатии */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/*тёмная тема*/
+
+/* App.css */
+:root {
+    --bg-color-light: #ffffff;
+    --text-color-light: #333333;
+    --button-bg-color-light: #4CAF50;
+    --button-text-color-light: #ffffff;
+
+    --bg-color-dark: #333333;
+    --text-color-dark: #ffffff;
+    --button-bg-color-dark: #d5281a;
+    --button-text-color-dark: #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Добавим стили для переключателя темы */
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.theme-toggle label {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-toggle label:after {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+.theme-toggle input:checked + label {
+    background-color: #4CAF50;
+}
+
+.theme-toggle input:checked + label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
 }
